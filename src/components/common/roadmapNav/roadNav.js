@@ -156,15 +156,15 @@ export default class RoadNav extends Component {
       console.log("isSelected: ", this.state.isSelected)
 
       return (
-        NAV_ITEMS.map(navItem => {
+        this.props.data.allContentfulRoadmap.edges.map(navItem => {
             return (
               <LinkItem>
                 <div style={{display: "flex", flexWrap: "wrap"}} onClick={(e) => this.handleClick(e)}>
                   <Divimage>
-                    <SacramentSymbol src={navItem.symbol} />
+                    <SacramentSymbol src={navItem.node.symbol.file.url} />
                   </Divimage>
                   {
-                    navItem.name === this.state.isSelected ? <LinkListLi style={{color:"#ED6F1B", borderBottom: "2px solid rgb(237, 111, 27)"}} key={navItem.name}>{navItem.name}</LinkListLi> : <LinkListLi style={{color:"#ED6F1B"}} key={navItem.name}>{navItem.name}</LinkListLi>
+                    navItem.node.title === this.state.isSelected ? <LinkListLi style={{color:"#ED6F1B", borderBottom: "2px solid rgb(237, 111, 27)"}} key={navItem.node.title}>{navItem.node.title}</LinkListLi> : <LinkListLi style={{color:"#ED6F1B"}} key={navItem.node.title}>{navItem.node.title}</LinkListLi>
                   }
                 </div>
               </LinkItem>
@@ -175,7 +175,7 @@ export default class RoadNav extends Component {
 
   render() {
     const { mobileMenuOpen, data } = this.state
-    console.log("Data rm ", this.state.data)
+    console.log("Data rm ", this.props.data)
     return (
       <Section id="features">
         <StyledSection>

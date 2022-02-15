@@ -5,7 +5,7 @@ import { Container, Section } from "../components/global"
 import ContactForm from "../components/form"
 import RoadNav from "../components/common/roadmapNav/roadNav.js"
 import Layout from "../components/common/layout/layout"
-import SEO from "../components/seo"
+import SEO from "../components/common/layout/seo"
 import Navigation from "../components/common/navigation/navigation"
 import Banner from "../components/sections/banner"
 import Footer from "../components/sections/footer"
@@ -69,7 +69,7 @@ export default Roadmap
 
 export const roadmapQuery = graphql`
 query roadmapByTitleQuery {
-allContentfulRoadmap {
+allContentfulRoadmap(sort: {order: ASC, fields: order}) {
   edges {
     node {
       timelineNodes {
@@ -82,6 +82,11 @@ allContentfulRoadmap {
       }
       colour
       slogan
+      symbol {
+      file {
+        url
+      }
+    }
     }
   }
 }

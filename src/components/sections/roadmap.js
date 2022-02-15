@@ -10,7 +10,7 @@ const Roadmap = () => {
   const data = useStaticQuery(
     graphql`
     query allRoadmapsQuery {
-    allContentfulRoadmap {
+    allContentfulRoadmap(sort: {order: ASC, fields: order}) {
       edges {
         node {
           timelineNodes {
@@ -23,11 +23,17 @@ const Roadmap = () => {
           }
           colour
           slogan
+          symbol {
+          file {
+            url
+          }
+        }
         }
       }
     }
     }
 `)
+console.log("NEW ROAD ", data)
   return (
     <StyledSection>
       <SectionTitle style={{color: "white"}}>Roadmap Wind Seeds</SectionTitle>
