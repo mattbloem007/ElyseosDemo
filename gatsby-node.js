@@ -1,5 +1,5 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const { createFilePath, createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
 const { get } = require('lodash')
 
@@ -13,7 +13,43 @@ const getImagesFromRichText = edge =>
   }, [])
 
 
+  exports.createResolvers = async (
+    {
+      actions,
+      cache,
+      createNodeId,
+      createResolvers,
+      store,
+      reporter,
+    },
+  ) => {
+    const { createNode } = actions
 
+    await createResolvers({
+      WPGraphQL_MediaItem: {
+        imageFile: {
+          type: "File",
+          async resolve(source) {
+            let sourceUrl = source.sourceUrl
+
+            if (source.mediaItemUrl !== undefined) {
+              sourceUrl = source.mediaItemUrl
+            }
+
+            return await createRemoteFileNode({
+              url: encodeURI(sourceUrl),
+              store,
+              cache,
+              createNode,
+              createNodeId,
+              reporter,
+            })
+          },
+        },
+      },
+    })
+  }
+  
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === "build-html") {
     actions.setWebpackConfig({
