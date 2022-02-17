@@ -49,28 +49,59 @@ const Features = ({data}) => {
       <FeaturesGrid>
       {
         data ? data.map(contentItem => {
-          return (
-            <FeatureItem>
-              <ImageandTitle>
-                <SacramentSymbol src={contentItem.sacramentIcon.file.url} />
-                <FeatureTitle>{contentItem.title}</FeatureTitle>
-              </ImageandTitle>
-              {documentToReactComponents(JSON.parse(contentItem.body.raw, options))}
-              {/**contentItem.title === "Get ELYS"
-              ?
-              <>
-           <BrowserView>
-               <Link to="https://presale.money/app/#/presale/8"><SacramentSymbol src={presaleButton} /></Link>
-           </BrowserView>
-           <MobileView>
-               <Link to="https://metamask.app.link/dapp/presale.money/app/#/dashboard"><SacramentSymbol src={presaleButton} /></Link>
-           </MobileView>
-       </>
-              :
-              null
-            */}
-            </FeatureItem>
-          )
+          console.log(contentItem.body.raw.length)
+          if (contentItem.body.raw.length < 603 || contentItem.title == "Get ELYS") {
+            return (
+              <FeatureItem>
+                <ImageandTitle>
+                  <SacramentSymbol src={contentItem.sacramentIcon.file.url} />
+                  <FeatureTitle>{contentItem.title}</FeatureTitle>
+                </ImageandTitle>
+                {documentToReactComponents(JSON.parse(contentItem.body.raw, options))}
+
+                {/**contentItem.title === "Get ELYS"
+                ?
+                <>
+             <BrowserView>
+                 <Link to="https://presale.money/app/#/presale/8"><SacramentSymbol src={presaleButton} /></Link>
+             </BrowserView>
+             <MobileView>
+                 <Link to="https://metamask.app.link/dapp/presale.money/app/#/dashboard"><SacramentSymbol src={presaleButton} /></Link>
+             </MobileView>
+         </>
+                :
+                null
+              */}
+              </FeatureItem>
+            )
+          }
+          else {
+            return (
+              <FeatureItem>
+                <ImageandTitle>
+                  <SacramentSymbol src={contentItem.sacramentIcon.file.url} />
+                  <FeatureTitle>{contentItem.title}</FeatureTitle>
+                </ImageandTitle>
+                {documentToReactComponents(JSON.parse(contentItem.body.raw, options))}
+                <FeatureText style={{color: "#ED6F1B", fontStyle: "italic", textDecoration: "underline"}}><Link to="/roadmap">Read more</Link></FeatureText>
+
+                {/**contentItem.title === "Get ELYS"
+                ?
+                <>
+             <BrowserView>
+                 <Link to="https://presale.money/app/#/presale/8"><SacramentSymbol src={presaleButton} /></Link>
+             </BrowserView>
+             <MobileView>
+                 <Link to="https://metamask.app.link/dapp/presale.money/app/#/dashboard"><SacramentSymbol src={presaleButton} /></Link>
+             </MobileView>
+         </>
+                :
+                null
+              */}
+              </FeatureItem>
+            )
+          }
+
         }) : null
       }
       </FeaturesGrid>
@@ -110,7 +141,7 @@ const FeaturesGrid = styled.div`
   margin: 0px auto;
   grid-column-gap: 40px;
   grid-row-gap: 35px;
-  margin-bottom: 100px;
+  margin-bottom: 300px;
   @media (max-width: ${props => props.theme.screen.sm}) {
     grid-template-columns: 1fr;
     padding: 0 64px;
