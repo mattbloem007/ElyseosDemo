@@ -212,6 +212,24 @@ export const Mobile = styled.div`
   `}
 `
 
+export const SectionTitle = styled.h5`
+  color: ${props => props.theme.color.primary};
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 0px;
+`
+
+
+export const Subtitle = styled.h1`
+  color: ${props => props.theme.color.accent};
+  letter-spacing: 0px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-style: italic;
+`
+
 // Background blur info
 // background-color: ${props => props.scrolled && `rgba(245, 245, 250, .8`};
 // box-shadow:  ${props =>

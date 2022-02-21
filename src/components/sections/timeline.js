@@ -11,6 +11,31 @@ import { CssBaseline } from "@material-ui/core";
 import { useStaticQuery, graphql, Link } from "gatsby"
 
 import { Section, Container } from "../global"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+
+const Bold = ({ children }) => <span style={{color: "white"}}>{children}</span>
+const Text = ({ children }) => <p style={{color: "white", textAlign: "center"}}>{children}</p>
+
+const options = {
+  renderMark: {
+    [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+  },
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+    [BLOCKS.EMBEDDED_ASSET]: node => {
+      return (
+        <>
+          <h2>Embedded Asset</h2>
+          <pre>
+            <code>{JSON.stringify(node, null, 2)}</code>
+          </pre>
+        </>
+      )
+    },
+  },
+}
+
 
 
 
@@ -33,18 +58,9 @@ const TimeLine = ({ data }) => {
       <SectionTitle style={{color: `${sloganCol}`}}>{data.slogan}</SectionTitle>
       <Subtitle style={{color: `${titleCol}`}}>{data.title}</Subtitle>
       <Timeline style={{padding: "0px"}}>
-      {
-        data.timelineNodes.map(node => (
-          <MuiTimelineItem style={{paddingLeft: "30px", paddingRight: "0px"}}>
-            <TimelineSeparator>
-              <TimelineDot style={{color: "#ED6F1B", backgroundColor: "#ED6F1B"}} />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent style={{color: `${itemCol}`}}>{node.title}</TimelineContent>
-            <TimelineContent style={{color: "#ED6F1B", alignSelf: "center"}}>{node.description}</TimelineContent>
-          </MuiTimelineItem>
-        ))
-      }
+      <IntroText>
+        {data.description ? documentToReactComponents(JSON.parse(data.description.raw, options)) : null}
+      </IntroText>
     </Timeline>
     </StyledSection>
   </Section>
@@ -75,4 +91,14 @@ const Subtitle = styled.h1`
   margin-top: 10px;
   margin-bottom: 20px;
   font-style: italic;
+`
+
+const IntroText = styled.div`
+  margin: 0px auto;
+  margin-left: 10px;
+  padding-left: 20px;
+
+  @media (max-width: ${props => props.theme.screen.md}) {
+    padding-left: 0px;
+  }
 `

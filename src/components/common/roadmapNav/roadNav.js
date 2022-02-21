@@ -190,9 +190,9 @@ export default class RoadNav extends Component {
         </TimeLineContainer>
       </FeaturesGrid>
       <IntroContainer>
-      <IntroText>
+      {/**<IntroText>
         {data.node.description ? documentToReactComponents(JSON.parse(data.node.description.raw, options)) : null}
-      </IntroText>
+      </IntroText>*/}
       </IntroContainer>
       </StyledSection>
     </Section>
