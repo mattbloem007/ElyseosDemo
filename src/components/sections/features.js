@@ -50,7 +50,7 @@ const Features = ({data}) => {
       {
         data ? data.map(contentItem => {
           console.log(contentItem.body.raw.length)
-          if (contentItem.body.raw.length < 603 || contentItem.title == "Get ELYS") {
+          if (contentItem.title == "Token Price" || contentItem.title == "Get ELYS") {
             return (
               <FeatureItem>
                 <ImageandTitle>
