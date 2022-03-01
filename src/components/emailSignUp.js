@@ -40,6 +40,7 @@ function EmailForm() {
         name="email-newsletter"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        style={{width: "100%", display: "flex"}}
       >
         <Field type="hidden" name="form-name" />
         <Field type="hidden" name="bot-field" />
@@ -169,8 +170,9 @@ const CheckInput = styled.input`
 `
 
 const Flex = styled.div`
-  display: grid;
-  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-content: center;
   grid-template-columns: 1fr 1fr 1fr;
   @media (max-width: ${props => props.theme.screen.md}) {
