@@ -101,7 +101,8 @@ class FeaturePage extends React.Component {
             </IntroContainer>
           </StyledSection>
           <Features data={data.contentfulFeaturePage.contentItems}/>
-          <SimpleSlider />
+          {data.contentfulFeaturePage.slug == "home" ? <SimpleSlider /> : null}
+
         </Section>
         <Footer />
       </Layout>
