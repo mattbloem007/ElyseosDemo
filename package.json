@@ -34,6 +34,7 @@
     "gatsby-source-graphql": "^3.11.0",
     "gatsby-source-wordpress": "^6.1.0",
     "gatsby-source-wpgraphql-images": "^1.1.0",
+    "gatsby-source-youtube-v2": "^1.0.1",
     "gatsby-transformer-remark": "^4.7.0",
     "gatsby-transformer-sharp": "^2.5.13",
     "gatsby-wordpress-inline-images": "^1.2.1",

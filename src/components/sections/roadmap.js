@@ -36,11 +36,11 @@ const Roadmap = () => {
 console.log("NEW ROAD ", data)
   return (
     <StyledSection>
-      <SectionTitle style={{color: "white"}}>Roadmap Wind Seeds</SectionTitle>
+      <SectionTitle style={{color: "white"}}>Ecosystem</SectionTitle>
       <Subtitle>Epoch 0</Subtitle>
       <IntroContainer>
         <IntroText>
-        <FeatureText style={{color: "white"}}> The Elyseos DAO has a rhythm to its operations known as Epochs. At the beginning of each Epoch we have an opportunity to set growth, engagement, service delivery and other goals.  At the end of each Epoch there is a further issuance of ELYS tokens. Epochs length is determined via a vote by DAO governance and last from 6-18 months.
+        <FeatureText style={{color: "white"}}> The Elyseos ecosystem is made up of many arms to support  community development.
         </FeatureText>
         </IntroText>
       </IntroContainer>

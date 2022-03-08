@@ -24,6 +24,14 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
+    {
+    resolve: `gatsby-source-youtube-v2`,
+    options: {
+      channelId: ['UCnqCcdQLZQUzG4CDvbw9jhA', 'UC4Ii0yM2sD5N05BAPnXzdSQ'],
+      apiKey: 'AIzaSyA8P_pX5DPpvQftVOTGJQmvtJMIlorkKVg',
+      maxVideos: 50 // Defaults to 50
+    },
+  },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
     {

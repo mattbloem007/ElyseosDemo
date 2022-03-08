@@ -9,29 +9,24 @@ import { Section, Container } from "../global"
 const SimpleSlider = ({ children }) => {
   const data = useStaticQuery(
     graphql`
-    query carouselQuery {
-      wpgraphql {
-    posts {
-      nodes {
-        featuredImage {
-          node {
-            sourceUrl
-            imageFile {
-              childImageSharp {
-                fluid(maxWidth: 200, maxHeight: 200) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+    query featureItemQuery {
+allYoutubeVideo {
+  edges {
+    node {
+      title
+      videoId
+      description
+      localThumbnail {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
           }
         }
-        title
-        slug
-        excerpt
       }
     }
   }
-    }
+}
+}
     `
   )
   console.log("Carousel data: ", data)
@@ -44,15 +39,16 @@ const SimpleSlider = ({ children }) => {
               <div className="col-6">
                   <Carousel>
                   {
-                    data.wpgraphql.posts.nodes.map(posts => {
+                    data.allYoutubeVideo.edges.map(videos => {
+                      console.log("Vid, ", videos)
                       return (
                         <Carousel.Item>
-                        <Img fluid={posts.featuredImage.node.imageFile.childImageSharp.fluid}/>
+                        <Img fluid={videos.node.localThumbnail.childImageSharp.fluid}/>
                             <Carousel.Caption>
-                                <Link to={"/" + posts.slug}><h3>{posts.title}</h3></Link>
-                                <p dangerouslySetInnerHTML={{
-                                    __html: posts.excerpt
-                                }}/>
+                                <Link target="_blank" to={"https://youtube.com/watch?v=" + videos.node.videoId}><h3>{videos.node.title}</h3></Link>
+                              {/**  <p dangerouslySetInnerHTML={{
+                                    __html: videos.node.description
+                                }}/>*/}
                             </Carousel.Caption>
                         </Carousel.Item>
                       )
