@@ -49,8 +49,8 @@ class FeaturePage extends React.Component {
   render() {
     const data = this.props.data
     console.log("Feature", data)
-    const imageNodes = data.allContentfulAsset.edges || []
-    const images = imageNodes.map(edge => edge.node.fluid)
+    // const imageNodes = data.allContentfulAsset.edges || []
+    // const images = imageNodes.map(edge => edge.node.fluid)
     const richText = data.contentfulFeaturePage.featureText1.raw
 
 
@@ -113,7 +113,7 @@ class FeaturePage extends React.Component {
 export default FeaturePage
 
 export const pageQuery = graphql`
-  query FeaturePageQuery($slug: String!, $images: [String!]!) {
+  query FeaturePageQuery($slug: String!) {
     contentfulFeaturePage (slug: { eq: $slug } ){
       title
       subtitle
@@ -134,15 +134,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulAsset(filter: { file: { url: { in: $images } } }) {
-      edges {
-        node {
-          fluid(maxWidth: 700, quality: 85) {
-            ...GatsbyContentfulFluid_withWebp
-          }
-        }
-      }
-    }
+
   }
 `
 const StyledContainer = styled(Container)``
