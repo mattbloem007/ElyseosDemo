@@ -72,7 +72,7 @@ export default class RoadNav extends Component {
 		this.isMountedVal = 0;
     this.currentData = props.data
     props.data.allContentfulRoadmap.edges.map(roadmap => {
-      if (roadmap.node.title == "Muti Market") {
+      if (roadmap.node.title == "Elyseos Foundation (1)") {
         this.currentData = roadmap
         return;
       }
@@ -175,7 +175,7 @@ export default class RoadNav extends Component {
 
   render() {
     const { mobileMenuOpen, data } = this.state
-    console.log("Data rm ", this.props.data)
+    console.log("Data rm ", this.state.data)
     return (
       <Section id="features">
         <StyledSection>

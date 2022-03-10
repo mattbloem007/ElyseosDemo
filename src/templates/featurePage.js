@@ -114,7 +114,7 @@ export default FeaturePage
 
 export const pageQuery = graphql`
   query FeaturePageQuery($slug: String!) {
-    contentfulFeaturePage (slug: { eq: $slug } ){
+    contentfulFeaturePage (slug: { eq: $slug }){
       title
       subtitle
       slug

@@ -10,7 +10,7 @@ const Roadmap = () => {
   const data = useStaticQuery(
     graphql`
     query allRoadmapsQuery {
-    allContentfulRoadmap(sort: {order: ASC, fields: order}) {
+    allContentfulRoadmap(sort: {order: ASC, fields: order}, filter: {sys: {revision: {eq: null}}}) {
       edges {
         node {
           timelineNodes {

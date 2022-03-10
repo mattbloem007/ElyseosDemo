@@ -16,7 +16,7 @@ const Events = () => {
   const data = useStaticQuery(
     graphql`
     query EventsPageQuery {
-      allContentfulEventsPage {
+      allContentfulEventsPage(filter: {sys: {revision: {eq: null}}}) {
         edges {
           node {
             featureText1 {

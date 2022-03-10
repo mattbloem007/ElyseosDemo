@@ -69,7 +69,7 @@ export default Roadmap
 
 export const roadmapQuery = graphql`
 query roadmapByTitleQuery {
-allContentfulRoadmap(sort: {order: ASC, fields: order}) {
+allContentfulRoadmap(sort: {order: ASC, fields: order}, filter: {sys: {revision: {eq: null}}}) {
   edges {
     node {
       timelineNodes {

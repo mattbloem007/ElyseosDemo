@@ -49,7 +49,7 @@ const getImagesFromRichText = edge =>
       },
     })
   }
-  
+
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === "build-html") {
     actions.setWebpackConfig({
@@ -102,7 +102,7 @@ exports.createPages = ({ graphql, actions }) => {
 
    createRedirect({
      fromPath: '/',
-     toPath: '/home',
+     toPath: '/home(1)',
      isPermanent: true,
      redirectInBrowser: true,
   })
@@ -125,7 +125,7 @@ exports.createPages = ({ graphql, actions }) => {
          }
        }
 
-        allContentfulBlogPost {
+        allContentfulBlogPost(filter: {sys: {revision: {eq: null}}}) {
           edges {
             node {
               id
@@ -147,7 +147,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
-        allContentfulPage {
+        allContentfulPage(filter: {sys: {revision: {eq: null}}}) {
           edges {
             node {
               featureText1 {
@@ -160,7 +160,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
-        allContentfulEventsPage {
+        allContentfulEventsPage(filter: {sys: {revision: {eq: null}}}) {
           edges {
             node {
               featureText1 {
@@ -173,7 +173,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
-        allContentfulRoadmap {
+        allContentfulRoadmap(filter: {sys: {revision: {eq: null}}}) {
             edges {
               node {
                 slogan
@@ -187,7 +187,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-          allContentfulFeaturePage {
+          allContentfulFeaturePage(filter: {sys: {revision: {lte: 1}}}) {
            edges {
              node {
                title
@@ -212,7 +212,7 @@ exports.createPages = ({ graphql, actions }) => {
            }
          }
 
-         allContentfulFaqPage {
+         allContentfulFaqPage(filter: {sys: {revision: {eq: null}}}) {
           edges {
             node {
               subtitle
