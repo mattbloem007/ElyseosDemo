@@ -56,6 +56,10 @@ const GlobalStyles = createGlobalStyle`
 
   }
 
+  li {
+    color: ${props => props.theme.color.background.white};
+  }
+
   input {
     font-family: ${props => props.theme.font.normal};
   }

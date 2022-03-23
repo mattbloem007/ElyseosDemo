@@ -84,12 +84,13 @@ export const FeatureText = styled.p`
 
 export const TimeLineContainer = styled.div`
   display: flex;
-  align-items: flex-start
+  align-items: flex-start;
+  width: 300px;
 `
 
 
 export const LinksWrapper = styled.div`
-  width: 100%;
+  width: 500px;
   height: 100%;
   margin: 10px;
   padding: 10px;
@@ -108,8 +109,8 @@ export const LinksWrapper = styled.div`
 
 export const LinkList = styled.ul`
 
-    padding-right: 25px;
-    padding-left: 25px;
+    padding-right: 15px;
+    padding-left: 5px;
 
     @media (max-width: ${props => props.theme.screen.md}) {
       padding-left: 0px;

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import { Formik, Field, Form, ErrorMessage } from "formik"
 import {navigate} from 'gatsby'
 import styled from "styled-components"
+import * as Yup from "yup";
+
 
 import Recaptcha from "react-recaptcha"
 import Radio from "./radio"
@@ -16,7 +18,13 @@ function EmailForm() {
   const [token, setToken] = useState(null)
   return (
     <Formik
-      initialValues={{ address: "", elys: "", currency: "", email: "", telegram: "" }}
+      initialValues={{ email: "", telegram: "" }}
+      validationSchema={Yup.object().shape({
+                      email: Yup.number()
+                        .required("Give us one or both of these as a means of contacting you"),
+                      telegram: Yup.number()
+                        .required("Give us one or both of these as a means of contacting you"),
+                    })}
       onSubmit={(data, {resetForm}) => {
         console.log(data)
           fetch("/", {
@@ -35,29 +43,50 @@ function EmailForm() {
 
       }}
     >
-    {(formik) => (
+    {({
+        values,
+        errors,
+        touched,
+        handleSubmit,
+        isSubmitting,
+        validating,
+        valid,
+      }) => (
       <Form
         name="email-newsletter"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        style={{width: "100%", display: "flex"}}
+        style={{width: "100%", display: "flex", flexDirection: "column"}}
       >
         <Field type="hidden" name="form-name" />
         <Field type="hidden" name="bot-field" />
 
-        <Flex style={{marginBottom: "50px"}}>
-          <Label htmlFor="name">Name</Label>
-            <Field name="name" placeholder="Enter your name" type="text" style={{background: "#FACBAC 0% 0% no-repeat padding-box", border: "2px solid #ED6F1B", borderRadius: "30px", width: "223px", height: "33px", paddingLeft: "10px"}}/>
-          <ErrorMessage name="name" />
+        <Flex>
+          <Field name="telegram" valid={touched.telegram && !errors.telegram} error={touched.telegram && errors.telegram} placeholder="We will contact you here:" type="text" style={{background: "#FBB88C", borderStyle: "none", borderRadius: "30px", width: "323px", height: "33px", paddingLeft: "10px"}}/>
+          <ErrorMessage name="telegram">
+            {(msg) => (
+              <StyledInlineErrorMessage>{msg}</StyledInlineErrorMessage>
+            )}
+          </ErrorMessage>
         </Flex>
         <br />
-        <Flex style={{marginBottom: "50px"}}>
-          <Label htmlFor="email">Email Address</Label>
-            <Field name="email" placeholder="We will contact you here" type="text" style={{background: "#FACBAC 0% 0% no-repeat padding-box", border: "2px solid #ED6F1B", borderRadius: "30px", width: "223px", height: "33px", paddingLeft: "10px"}}/>
-          <ErrorMessage name="email" />
+        <Flex>
+            <Field name="email" valid={touched.email && !errors.email} error={touched.email && errors.email} placeholder="We will contact you here:" type="text" style={{background: "#FBB88C", borderStyle: "none", borderRadius: "30px", width: "323px", height: "33px", paddingLeft: "10px"}}/>
+            <ErrorMessage name="email">
+              {(msg) => (
+                <StyledInlineErrorMessage>{msg}</StyledInlineErrorMessage>
+              )}
+            </ErrorMessage>
         </Flex>
         <br />
-        <Submit style={{color: "white"}} type="submit">Submit form</Submit>
+        <Flex>
+            <Field name="message" placeholder="Lorem ipsum" type="text" style={{background: "#FBB88C", borderStyle: "none", borderRadius: "30px", width: "493px", height: "223px", paddingLeft: "10px"}}/>
+          <ErrorMessage name="message" />
+        </Flex>
+        <br/>
+        <Flex style={{marginBottom: "50px", justifyContent: "flex-end"}}>
+          <Submit style={{color: "white"}} type="submit">Submit</Submit>
+        </Flex>
       </Form>
       )}
     </Formik>
@@ -204,13 +233,27 @@ const FeatureText = styled.p`
   }
 `
 
-const Submit = styled.button`
-width: 167px;
-height: 32px;
-float: right;
-background: #ED6F1B 0% 0% no-repeat padding-box;
-border-radius: 45px;
+const StyledInlineErrorMessage = styled.div`
+  background-color: rgb(255, 245, 245);
+  color: rgb(120, 27, 0);
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
+  white-space: pre-line;
 `
+
+const Submit = styled.button`
+float: right;
+border-radius: 45px;
+width: 160px;
+background-color: rgb(236, 112, 25);
+border: none;
+border-radius: 20px;
+height: 40px;
+color: rgb(255, 255, 255);
+font-size: 15px;
+`
+
 const FeatureItem = styled.div`
   display: flex;
   justify-content: center;

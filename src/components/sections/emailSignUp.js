@@ -3,29 +3,36 @@ import styled from "styled-components"
 
 import { Container, Section } from "../global"
 import EmailForm from "../emailSignUp"
-import ti from '../../images/iboga-white-icon.png'
-import sp from '../../images/sanpedro-white-icon.png'
-import am from '../../images/amanita-icon-white-1.png'
-import cacao from '../../images/cacao-white-icon.png'
-import aya from '../../images/aya-white-icon.png'
-import canna from '../../images/cannabis-white-icon.png'
-import psilo from '../../images/psilocybin-trans-white.png'
-import salvia from '../../images/salvia-white-icon.png'
+import email from '../../images/Social_Media_Icons_Light_Orange_1_Email_-_V1.0.png'
+import telegram from '../../images/Social_Media_Icons_Light_Orange_Telegram_-_V1.0.png'
 
 const Email = () => (
   <Section id="features">
-    <StyledSection>
-      <SectionTitle style={{color: "white"}}>Email Signup</SectionTitle>
-      <Subtitle style={{color: "#ED6F1B"}}>Subscribe to the Newsletter</Subtitle>
+  <GetInTouchContainer>
+    <SectionTitle style={{color: "white", fontSize: "40px"}}>Get in Touch!</SectionTitle>
+    <ImageandTitle>
+      <SacramentSymbol src={telegram} />
+      <FeatureTitle style={{color: "white", fontSize: "20px"}}>Telegram Number</FeatureTitle>
+    </ImageandTitle>
+    <ImageandTitle>
+      <SacramentSymbol src={email} />
+      <FeatureTitle style={{color: "white", fontSize: "20px"}}>Email Address</FeatureTitle>
+    </ImageandTitle>
+    <FeatureItem>
+      <FeatureText style={{color: "white", fontSize: "20px"}}>Share what you propose, need or anything at all!</FeatureText>
+    </FeatureItem>
+  </GetInTouchContainer>
+  <StyledSection>
 
-      <GetStartedContainer>
+    </StyledSection>
+        <EmailContainer>
         <FeaturesGrid>
         <FeatureItem>
           <EmailForm />
         </FeatureItem>
         </FeaturesGrid>
-      </GetStartedContainer>
-    </StyledSection>
+        </EmailContainer>
+
   </Section>
 )
 
@@ -35,6 +42,7 @@ const StyledContainer = styled(Container)``
 
 const StyledSection = styled(Section)`
   background-color: #231B17;
+  padding-top: 50px;
 `
 
 const SectionTitle = styled.h3`
@@ -43,6 +51,47 @@ const SectionTitle = styled.h3`
   justify-content: center;
   text-align: center;
   margin-bottom: 0px;
+  font: "Parisine Plus STD" 60px;
+`
+
+const GetStartedContainer = styled(Container)`
+  width: 80%;
+  height: 100%;
+  position: relative;
+`
+
+const EmailContainer = styled(Container)`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 40px;
+  padding: 0px 0 40px;
+  width: 80%;
+  height: 100%;
+  margin-bottom: 300px;
+  background: #FACBAC 0% 0% no-repeat padding-box;
+  border: 1px solid #ED6F1B;
+
+`
+
+const GetInTouchContainer = styled(Container)`
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-direction: column;
+  gap: 35px;
+  padding: 0px 0 40px;
+  vertical-align: middle;
+  position: absolute;
+  width: 300px;
+  height: 500px;
+  z-index: 9;
+  margin-left: 100px;
+  margin-bottom: 300px;
+  padding-left: 30px;
+  background: #ED6F1B 0% 0% no-repeat padding-box;
+  border: 1px solid #ED6F1B;
 `
 
 const Subtitle = styled.h5`
@@ -59,9 +108,11 @@ const FeaturesGrid = styled.div`
   max-width: 670px;
   display: grid;
   padding-top: 50px;
-  margin: 0px auto;
+  margin: 0px 300px;
   grid-column-gap: 40px;
   grid-row-gap: 35px;
+  position: relative;
+
   @media (max-width: ${props => props.theme.screen.sm}) {
     grid-template-columns: 1fr;
     padding: 0 64px;
@@ -78,7 +129,7 @@ const FeatureItem = styled.div`
 const ImageandTitle = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: row;
 `
 
@@ -91,6 +142,9 @@ const FeatureTitle = styled.h5`
 
 const FeatureText = styled.p`
   text-align: center;
+  margin-left: 50px;
+  margin-right: 50px;
+}
 `
 
 const ExchangeBox = styled.div`
@@ -100,19 +154,7 @@ const ExchangeBox = styled.div`
   opacity: 1;
 `
 
-const GetStartedContainer = styled(Container)`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  gap: 100px;
-  padding: 0px 0 40px;
-  width: 1094px;
-  height: 300px;
-  margin-bottom: 300px;
-  background: #ED6F1B00 0% 0% no-repeat padding-box;
-  border: 1px solid #ED6F1B;
-`
+
 
 const GetStartedTitle = styled.h3`
   margin: 0 auto 32px;
@@ -133,7 +175,7 @@ const SacramentSymbolsContainer = styled.div`
 `
 
 const SacramentSymbol = styled.img`
-  height: 40px;
+  height: 20px;
   margin-bottom: 10px;
   padding-right: 30px;
 `

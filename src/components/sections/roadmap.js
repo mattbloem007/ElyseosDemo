@@ -5,6 +5,9 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import { Container, Section } from "../global"
 import ContactForm from "../form"
 import RoadNav from "../common/roadmapNav/roadNav.js"
+import eco1 from "../../images/Ecosystem 1_3.png"
+import eco2 from "../../images/Elyseos Ecosystem 2_3.png"
+import eco3 from "../../images/Elyseos Ecosystem 3_3.png"
 
 const Roadmap = () => {
   const data = useStaticQuery(
@@ -37,14 +40,18 @@ console.log("NEW ROAD ", data)
   return (
     <StyledSection>
       <SectionTitle style={{color: "white"}}>Ecosystem</SectionTitle>
-      <Subtitle>Epoch 0</Subtitle>
       <IntroContainer>
         <IntroText>
-        <FeatureText style={{color: "white"}}> The Elyseos ecosystem is made up of many arms to support  community development.
-        </FeatureText>
+        <Subtitle> The Elyseos ecosystem is made up of many arms to support  community development.
+        </Subtitle>
         </IntroText>
       </IntroContainer>
       <RoadNav data={data}/>
+      <IntroContainer>
+        <ecoImages src={eco1}/>
+        <ecoImages src={eco2}/>
+        <ecoImages src={eco3}/>
+      </IntroContainer>
     </StyledSection>
   )
 }
@@ -66,6 +73,19 @@ const IntroText = styled.div`
 margin-left: auto;
 margin-right: auto;
 max-width: 780px;
+`
+
+const ecoImages = styled.img`
+  padding-right: 50px;
+  padding-left: 50px;
+  width: 100%;
+  height: 70%;
+  opacity: 1;
+  z-index: 1;
+
+  @media (max-width: ${props => props.theme.screen.md}) {
+    padding: 0px 0;
+  }
 `
 
 const SectionTitle = styled.h3`

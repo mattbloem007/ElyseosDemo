@@ -55,7 +55,7 @@ const TimeLine = ({ data }) => {
   return (
   <Section id="features">
     <StyledSection style={{backgroundColor: `${sectionCol}`}}>
-      <SectionTitle style={{color: `${sloganCol}`}}>{data.slogan}</SectionTitle>
+      <SectionTitle style={{color: `${sloganCol}`, fontWeight: "bold"}}>{data.slogan}</SectionTitle>
       <Subtitle style={{color: `${titleCol}`}}>{data.title}</Subtitle>
       <Timeline style={{padding: "0px"}}>
       <IntroText>

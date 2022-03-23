@@ -1,19 +1,22 @@
 import React from "react"
 import styled from "styled-components"
-import Layout from "../common/layout/layout"
-import SEO from "../common/layout/seo"
-import Navigation from "../common/navigation/navigation"
-import Banner from "./banner"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { documentToHtmlString } from "@contentful/rich-text-react-renderer"
 
+import { Section, Container } from "../global"
+import ti from '../../images/iboga-white-icon.png'
+import sp from '../../images/sanpedro-white-icon.png'
+import am from '../../images/amanita-icon-white-1.png'
+import cacao from '../../images/cacao-white-icon.png'
+import aya from '../../images/aya-white-icon.png'
+import canna from '../../images/cannabis-white-icon.png'
+import psilo from '../../images/psilocybin-trans-white.png'
+import salvia from '../../images/salvia-white-icon.png'
+import presaleButton from '../../images/ELYS_pre-sale.png'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import {BrowserView, MobileView} from 'react-device-detect';
 
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
-
-import { Section, Container } from "../global"
-import ab from '../../images/Aloha_Bokaye_Background.jpg'
 
 const Bold = ({ children }) => <span style={{color: "white"}}>{children}</span>
 const Text = ({ children }) => <p style={{color: "white", textAlign: "center"}}>{children}</p>
@@ -37,32 +40,31 @@ const options = {
   },
 }
 
+const ContactFeatures = ({data}) => {
+  console.log("Data feature: ", data)
 
-
-const LayoutOne = ({ children }) => {
-  const data = useStaticQuery(
-    graphql`
-    query MyQuery {
-      contentfulPage {
-        featureText1 {
-          raw
-        }
-
-        subtitle
-        title
-      }
-    }
-    `
-  )
   return (
-    <Layout>
-        <SEO title={data.contentfulPage.title} />
-        {children}
-    </Layout>
-)
+  <Section id="features">
+    <StyledSection>
+      <FeaturesGrid>
+      {
+        data ? data.map(contactItem => {
+            return (
+              <FeatureItem>
+                  <FeatureTitle style={{color: "white"}}>{contactItem.name}</FeatureTitle>
+                {contactItem.roleDescription ? <FeatureTitle style={{color: "white"}}>{contactItem.roleDescription}</FeatureTitle> : null}
+                <Subtitle>{contactItem.email}</Subtitle>
+              </FeatureItem>
+            )
+        }) : null
+      }
+      </FeaturesGrid>
+    </StyledSection>
+  </Section>
+  )
 }
 
-export default LayoutOne
+export default ContactFeatures
 
 const StyledContainer = styled(Container)``
 
@@ -74,18 +76,15 @@ const SectionTitle = styled.h3`
   color: ${props => props.theme.color.primary};
   display: flex;
   justify-content: center;
+  margin: 0 auto 40px;
   text-align: center;
-  margin-bottom: 0px;
 `
 
 const Subtitle = styled.h5`
   font-size: 16px;
   color: ${props => props.theme.color.accent};
   letter-spacing: 0px;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-style: italic;
+  margin-bottom: 12px;
 `
 
 const FeaturesGrid = styled.div`
@@ -95,6 +94,7 @@ const FeaturesGrid = styled.div`
   margin: 0px auto;
   grid-column-gap: 40px;
   grid-row-gap: 35px;
+  margin-bottom: 300px;
   @media (max-width: ${props => props.theme.screen.sm}) {
     grid-template-columns: 1fr;
     padding: 0 64px;
@@ -104,26 +104,30 @@ const FeaturesGrid = styled.div`
 const FeatureItem = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-self: flex-start;
 `
 
 const ImageandTitle = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: flex-end;
   flex-direction: row;
+  height: 60px;
 `
 
+//Position relative is a bit of a hack to align
 const FeatureTitle = styled.h5`
   color: ${props => props.theme.color.accent};
   letter-spacing: 0px;
   line-height: 30px;
   margin-bottom: 10px;
+  font-size: 25px;
+  position: relative;
+  top: -5px;
 `
 
 const FeatureText = styled.p`
-  text-align: center;
 `
 
 const IntroContainer = styled.div`

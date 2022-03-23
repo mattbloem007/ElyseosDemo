@@ -19,42 +19,42 @@ import EmailForm from "../emailSignUp"
 
 const Footer = () => (
   <FooterWrapper id="footer">
-  <Section id="features">
+  {/**<Section id="features">
     <StyledSection>
       <GetStartedContainer>
           <EmailForm />
       </GetStartedContainer>
     </StyledSection>
-  </Section>
+  </Section>*/}
     <FooterColumnContainer>
       <FooterColumn>
         <span>General</span>
         <ul>
-          <ListLink href="/home"><li>About</li></ListLink>
-          <ListLink href="/faq"><li>FAQ</li></ListLink>
-          <li>Support</li>
+          <ListLink href="/home"><li style={{color: "#231B17"}}>About</li></ListLink>
+          <ListLink href="/faq"><li style={{color: "#231B17"}}>FAQ</li></ListLink>
+          <li style={{color: "#231B17"}}>Support</li>
         </ul>
       </FooterColumn>
       <FooterColumn>
         <span>Technology</span>
         <ul>
-          <ListLink href="/roadmap"><li>Roadmap</li></ListLink>
-          <ListLink href="/token-timelines"><li>Token</li></ListLink>
-          <ListLink href="/litepaper"><li>Litepaper</li></ListLink>
+          <ListLink href="/roadmap"><li style={{color: "#231B17"}}>Roadmap</li></ListLink>
+          <ListLink href="/token-timelines"><li style={{color: "#231B17"}}>Token</li></ListLink>
+          <ListLink href="/litepaper"><li style={{color: "#231B17"}}>Litepaper</li></ListLink>
         </ul>
       </FooterColumn>
       <FooterColumn>
         <span>Community</span>
         <ul>
-        <ListLink href="/roadmap"><li>Roadmap</li></ListLink>
-        <li>Governance</li>
-        <ListLink href="/litepaper"><li>Litepaper</li></ListLink>
+        <ListLink href="/roadmap"><li style={{color: "#231B17"}}>Roadmap</li></ListLink>
+        <li style={{color: "#231B17"}}>Governance</li>
+        <ListLink href="/litepaper"><li style={{color: "#231B17"}}>Litepaper</li></ListLink>
         </ul>
       </FooterColumn>
       <FooterColumn>
         <span>Listings</span>
         <ul>
-          <ListLink target="_blank" href="https://nomics.com/assets/elys-elyseos"><li>Nomics</li></ListLink>
+          <ListLink target="_blank" href="https://nomics.com/assets/elys-elyseos"><li style={{color: "#231B17"}}>Nomics</li></ListLink>
         </ul>
       </FooterColumn>
       <FooterColumn>
@@ -74,25 +74,25 @@ const Footer = () => (
         <a target="_blank" href="https://medium.com/@Elyseos">
           <SocialSymbol src={medium} />
         </a>
-        <a target="_blank" href="https://medium.com/@Elyseos">
+        <a target="_blank" href="https://www.facebook.com/elyseos">
           <SocialSymbol src={facebook} />
         </a>
-        <a target="_blank" href="https://medium.com/@Elyseos">
+        <a target="_blank" href="https://www.instagram.com/elyseos_foundation/">
           <SocialSymbol src={instagram} />
         </a>
-        <a target="_blank" href="https://medium.com/@Elyseos">
+        <a target="_blank" href="https://www.youtube.com/channel/UCnqCcdQLZQUzG4CDvbw9jhA">
           <SocialSymbol src={youtube} />
         </a>
-        <a target="_blank" href="https://medium.com/@Elyseos">
+        <a target="_blank" href="https://soundcloud.com/user-434570485">
           <SocialSymbol src={soundcloud} />
         </a>
-        <a target="_blank" href="https://medium.com/@Elyseos">
+        <a target="_blank" href="https://open.spotify.com/show/1nCyBkQ4zU2lVNjx7cRyjz">
           <SocialSymbol src={spotify} />
         </a>
-        <a target="_blank" href="https://medium.com/@Elyseos">
+        <a target="_blank" href="https://rss.com/podcasts/alohabokaye/">
           <SocialSymbol src={rss} />
         </a>
-        <Link to="/email-signup">
+        <Link to="/contact">
           <SocialSymbol src={email} />
         </Link>
       </SocialContainer>

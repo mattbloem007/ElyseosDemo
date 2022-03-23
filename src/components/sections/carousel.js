@@ -7,29 +7,29 @@ import Layout from "../common/layout/layout"
 import { Section, Container } from "../global"
 
 const SimpleSlider = ({ children }) => {
-  const data = useStaticQuery(
-    graphql`
-    query featureItemQuery {
-allYoutubeVideo {
-  edges {
-    node {
-      title
-      videoId
-      description
-      localThumbnail {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  }
-}
-}
-    `
-  )
-  console.log("Carousel data: ", data)
+  // const data = useStaticQuery(
+  //   graphql`
+  //   query featureItemQuery {
+  //  allYoutubeVideo {
+  //    edges {
+  //    node {
+  //      title
+  //      videoId
+  //      description
+  //      localThumbnail {
+  //        childImageSharp {
+  //          fluid(maxWidth: 300) {
+  //            ...GatsbyImageSharpFluid
+  //          }
+  //        }
+  //      }
+  //       }
+  //     }
+  //     }
+  //    }
+  //   `
+  // )
+  //console.log("Carousel data: ", data)
   return (
     <Layout>
       <Section style={{backgroundColor: "#231B17"}} className='container-fluid' >
@@ -38,21 +38,18 @@ allYoutubeVideo {
           <div style={{justifyContent: "center", marginBottom: "300px"}} className="row">
               <div className="col-6">
                   <Carousel>
-                  {
+                  {/**
                     data.allYoutubeVideo.edges.map(videos => {
                       console.log("Vid, ", videos)
                       return (
                         <Carousel.Item>
                         <Img fluid={videos.node.localThumbnail.childImageSharp.fluid}/>
                             <Carousel.Caption>
-                                <Link target="_blank" to={"https://youtube.com/watch?v=" + videos.node.videoId}><h3>{videos.node.title}</h3></Link>
-                              {/**  <p dangerouslySetInnerHTML={{
-                                    __html: videos.node.description
-                                }}/>*/}
+                                <Link target="_blank" to={"https://youtube.com/watch?v=" + videos.node.videoId}><h3 style={{color: "#ED6F1B", fontStyle: "italic", textDecoration: "underline"}}>{videos.node.title}</h3></Link>
                             </Carousel.Caption>
                         </Carousel.Item>
                       )
-                    })
+                    })*/
                   }
                   </Carousel>
               </div>

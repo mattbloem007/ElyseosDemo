@@ -286,6 +286,10 @@ exports.createPages = ({ graphql, actions }) => {
 
     eventsPages.forEach((page, index) => {
       let tag = page.node.slug;
+      if (page.node.slug == null) {
+        tag = page.node.id
+      }
+
 
       createPage({
         path: tag,

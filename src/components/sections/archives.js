@@ -22,7 +22,7 @@ export default function Archives({ data }) {
     <Section>
       <StyledSection>
       <SectionTitle style={{color: "white"}}>Elyseos Blog</SectionTitle>
-      <Subtitle>Ancient Plant Stories</Subtitle>
+      <Subtitle>Modern Myths</Subtitle>
       <IntroContainer>
         <SacramentSymbolsContainer>
           <SacramentSymbol src={ti} />
