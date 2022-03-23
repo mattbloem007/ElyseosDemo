@@ -23,27 +23,22 @@ const videos = [
 
 const qualities = ['auto', '240', '380', '480', '720', '1080', '1440', '2160'];
 
-
+// const hashVideoRx = /^#!\/video\/(\d)$/;
+// const hash = typeof window.location !== 'undefined'
+//   ? window.location.hash : ''; // eslint-disable-line no-undef
+// const defaultVideo = hashVideoRx.test(hash)
+//   ? parseInt(hash.replace(hashVideoRx, '$1'), 10)
+//   : 0;
 
 function EpisodeList() {
-  const [videoIndex, setVideoIndex] = useState(defaultVideo);
+  //console.log(defaultVideo)
+  const [videoIndex, setVideoIndex] = useState(0);
   const [suggestedQuality, setSuggestedQuality] = useState('auto');
   const [volume, setVolume] = useState(1);
   const [paused, setPaused] = useState(false);
-  const hashVideoRx = null;
-  const video = videos[videoIndex];
-  const hash = null;
-  const defaultVideo = null;
 
-  useEffect(() => {
-  //Runs on every render
-  hashVideoRx = /^#!\/video\/(\d)$/;
-  hash = typeof window.location !== 'undefined'
-    ? window.location.hash : ''; // eslint-disable-line no-undef
-  defaultVideo = hashVideoRx.test(hash)
-    ? parseInt(hash.replace(hashVideoRx, '$1'), 10)
-    : 0;
-  });
+  const video = videos[videoIndex];
+
 
   function selectVideo(index) {
     setVideoIndex(index);
