@@ -44,12 +44,12 @@ const {
   useState,
 } = React;
 
-const hashVideoRx = /^#!\/video\/(\d)$/;
-const hash = typeof window.location !== 'undefined'
-  ? window.location.hash : ''; // eslint-disable-line no-undef
-const defaultVideo = hashVideoRx.test(hash)
-  ? parseInt(hash.replace(hashVideoRx, '$1'), 10)
-  : 0;
+// const hashVideoRx = /^#!\/video\/(\d)$/;
+// const hash = typeof window.location !== 'undefined'
+//   ? window.location.hash : ''; // eslint-disable-line no-undef
+// const defaultVideo = hashVideoRx.test(hash)
+//   ? parseInt(hash.replace(hashVideoRx, '$1'), 10)
+//   : 0;
 
 const videos = [
   { id: 'ZuuVjuLNvFY', name: 'The Crowning Series: Conversations', description: 'Lorem ipsum dolor sit amet, consector' },
@@ -59,7 +59,7 @@ const videos = [
 ];
 
 const AlohaList = ({ children }) => {
-  const [videoIndex, setVideoIndex] = useState(defaultVideo);
+  const [videoIndex, setVideoIndex] = useState(0);
   const [suggestedQuality, setSuggestedQuality] = useState('auto');
   const [volume, setVolume] = useState(1);
   const [paused, setPaused] = useState(false);
