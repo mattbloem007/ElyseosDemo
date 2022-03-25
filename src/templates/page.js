@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Layout from "../components/common/layout/layout"
 import SEO from "../components/seo"
 import Navigation from "../components/common/navigation/navigation"
+import Signup from "../components/common/signupBox/signup"
 import Banner from "../components/sections/banner"
 import Header from "../components/sections/header"
 import Features from "../components/sections/features"
@@ -111,6 +112,7 @@ class Page extends React.Component {
             </IntroText>
             </IntroContainer>
           </StyledSection>
+          <Signup />
         </Section>
         <Footer />
       </Layout>

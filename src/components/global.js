@@ -34,6 +34,7 @@ export const Container = styled.div`
 export const Section = styled.section`
   padding: 0px 0;
   overflow: hidden;
+  position: relative;
   background-color: ${props => {
     switch (props.accent) {
       case "secondary":

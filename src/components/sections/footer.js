@@ -17,6 +17,7 @@ import instagram from "../../images/Social Media Icons Black - V1.0 - Instagram.
 import telegram from "../../images/Social Media Icons Black - V1.0 - Telegram.png"
 import EmailForm from "../emailSignUp"
 
+
 const Footer = () => (
   <FooterWrapper id="footer">
   {/**<Section id="features">
@@ -189,7 +190,6 @@ const SocialSymbol = styled.img`
   margin-bottom: 20px;
   margin-top: 10px;
   margin-right: 50px;
-
 `
 
 const ListLink = styled.a`

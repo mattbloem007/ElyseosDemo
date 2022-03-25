@@ -8,6 +8,7 @@ import RoadNav from "../common/roadmapNav/roadNav.js"
 import eco1 from "../../images/Ecosystem 1_3.png"
 import eco2 from "../../images/Elyseos Ecosystem 2_3.png"
 import eco3 from "../../images/Elyseos Ecosystem 3_3.png"
+import Signup from "../common/signupBox/signup"
 
 const Roadmap = () => {
   const data = useStaticQuery(
@@ -52,6 +53,7 @@ console.log("NEW ROAD ", data)
         <ecoImages src={eco2}/>
         <ecoImages src={eco3}/>
       </IntroContainer>
+      <Signup />
     </StyledSection>
   )
 }

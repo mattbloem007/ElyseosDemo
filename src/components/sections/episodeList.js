@@ -30,14 +30,14 @@ const qualities = ['auto', '240', '380', '480', '720', '1080', '1440', '2160'];
 //   ? parseInt(hash.replace(hashVideoRx, '$1'), 10)
 //   : 0;
 
-function EpisodeList() {
-  //console.log(defaultVideo)
+function EpisodeList({video}) {
+  console.log("props", video)
   const [videoIndex, setVideoIndex] = useState(0);
   const [suggestedQuality, setSuggestedQuality] = useState('auto');
   const [volume, setVolume] = useState(1);
   const [paused, setPaused] = useState(false);
 
-  const video = videos[videoIndex];
+  const videor = video[videoIndex];
 
 
   function selectVideo(index) {
@@ -69,7 +69,7 @@ function EpisodeList() {
       <SectionTitle style={{color: "white"}}>Check out the latest episodes here:</SectionTitle>
       <div className="col s8 center-align">
         <YouTube
-          video={video.id}
+          video={videor.id}
           width={380}
           height={280}
           autoplay
@@ -82,10 +82,10 @@ function EpisodeList() {
           style={{alignSelf: "center"}}
         />
       </div>
-      <div className="col s4" style={{width: "88.333333%"}}>
+      <div className="col s4" style={{width: "88.333333%", overflowX : 'auto', height: "33px"}}>
         <div className="collection" style={{width: "555px", border: "none"}}>
-          {videos.map((choice, index) => {
-            if (video === choice) {
+          {video.map((choice, index) => {
+            if (videor === choice) {
               return(
                 <CollectionItemActive>
                     <VideoTitleContainer>
@@ -99,7 +99,7 @@ function EpisodeList() {
                       </a>
                       <Subtitle>18 March 2022</Subtitle>
                     </VideoTitleContainer>
-                    <SocialContainer>
+                    {/**<SocialContainer>
                       <a style={{width: "33px"}} target="_blank" href="https://www.instagram.com/elyseos_foundation/">
                         <SocialSymbol src={instagram} />
                       </a>
@@ -112,7 +112,7 @@ function EpisodeList() {
                       <a style={{width: "33px"}} target="_blank" href="https://rss.com/podcasts/alohabokaye/">
                         <SocialSymbol src={rss} />
                       </a>
-                  </SocialContainer>
+                  </SocialContainer>*/}
                 </CollectionItemActive>
               )
             }
@@ -130,7 +130,7 @@ function EpisodeList() {
                       </a>
                       <Subtitle>18 March 2022</Subtitle>
                     </VideoTitleContainer>
-                    <SocialContainer>
+                    {/**<SocialContainer>
                       <a style={{width: "33px"}} target="_blank" href="https://www.instagram.com/elyseos_foundation/">
                         <SocialSymbol src={instagram} />
                       </a>
@@ -143,7 +143,7 @@ function EpisodeList() {
                       <a style={{width: "33px"}} target="_blank" href="https://rss.com/podcasts/alohabokaye/">
                         <SocialSymbol src={rss} />
                       </a>
-                  </SocialContainer>
+                  </SocialContainer>*/}
                 </CollectionItem>
               )
             }
@@ -177,7 +177,7 @@ const CollectionItemActive = styled.div`
   line-height: 1.5rem;
   padding: 10px 20px;
   margin: 0;
-  background-color: #26a69a;
+  background-color: #ED6F1B;
 `
 
 const VideoTitleContainer = styled.div`
@@ -205,7 +205,7 @@ const SectionTitle = styled.h5`
 
 const Subtitle = styled.h5`
   font-size: 16px;
-  color: ${props => props.theme.color.accent};
+  color: white;
   letter-spacing: 0px;
   text-align: center;
   margin-top: 0px;

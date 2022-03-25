@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/common/layout/layout"
 import SEO from "../components/seo"
 import Navigation from "../components/common/navigation/navigation"
+
 import { useStaticQuery, graphql, Link } from "gatsby"
 
 import Header from "../components/sections/header"

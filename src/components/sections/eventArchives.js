@@ -10,6 +10,7 @@ import aya from '../../images/aya-white-icon.png'
 import canna from '../../images/cannabis-white-icon.png'
 import psilo from '../../images/psilocybin-trans-white.png'
 import salvia from '../../images/salvia-white-icon.png'
+import Signup from "../common/signupBox/signup"
 
 import { Section, Container } from "../global"
 
@@ -61,6 +62,7 @@ export default function EventArchives({ data }) {
           <SacramentSymbol src={salvia} />
         </SacramentSymbolsContainer>
       </IntroContainer>
+      <Signup />
       </StyledSection>
     </Section>
   )

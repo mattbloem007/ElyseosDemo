@@ -52,10 +52,10 @@ const {
 //   : 0;
 
 const videos = [
-  { id: 'ZuuVjuLNvFY', name: 'The Crowning Series: Conversations', description: 'Lorem ipsum dolor sit amet, consector' },
-  { id: 'PYE7jXNjFWw', name: 'The Crowning Series: Conversations', description: 'Lorem ipsum dolor sit amet, consector' },
-  { id: 'ld8ugY47cps', name: 'The Crowning Series: Conversations', description: 'Lorem ipsum dolor sit amet, consector' },
-  { id: null, name: '<none>' },
+  { id: 'ZuuVjuLNvFY', name: 'The Alchemy of Remembrance', description: 'Lorem ipsum dolor sit amet, consector' },
+  { id: 'ZuuVjuLNv3Y', name: 'The Crowning Series: Conversations', description: 'Lorem ipsum dolor sit amet, consector' },
+  { id: 'PYE7jXNjFWw', name: 'The Crowning Series: Attunements', description: 'Lorem ipsum dolor sit amet, consector' },
+  { id: 'ld8ugY47cps', name: 'Terra Tarot: Tools for Earthly Abundance', description: 'Lorem ipsum dolor sit amet, consector' },
 ];
 
 const AlohaList = ({ children }) => {
@@ -70,6 +70,121 @@ const AlohaList = ({ children }) => {
     setVideoIndex(index);
   }
 
+  const data = useStaticQuery(
+    graphql`
+    query videoQuery {
+
+      alchemy: allYoutubeVideo(filter: {title: {regex: "/The Alchemy of Remembrance/"}}) {
+        edges {
+        node {
+          title
+          videoId
+          description
+          localThumbnail {
+            childImageSharp {
+              fluid(maxWidth: 300) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+           }
+         }
+      }
+
+      cattunements: allYoutubeVideo(filter: {title: {regex: "/The Crowning Series: Attunements/"}}) {
+        edges {
+        node {
+          title
+          videoId
+          description
+          localThumbnail {
+            childImageSharp {
+              fluid(maxWidth: 300) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+           }
+         }
+      }
+
+      cconversations: allYoutubeVideo(filter: {title: {regex: "/The Crowning Series: Conversations/"}}) {
+        edges {
+        node {
+          title
+          videoId
+          description
+          localThumbnail {
+            childImageSharp {
+              fluid(maxWidth: 300) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+           }
+         }
+      }
+
+      terra: allYoutubeVideo(filter: {title: {regex: "/Terra Tarot/"}}) {
+        edges {
+        node {
+          title
+          videoId
+          description
+          localThumbnail {
+            childImageSharp {
+              fluid(maxWidth: 300) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+           }
+         }
+      }
+
+     }
+    `
+  )
+  console.log("Carousel data: ", data)
+  const ytVids = []
+  let component
+  // const ytVidsConversations = []
+  // const ytVidsTerra = []
+  // const ytVidsAttunements = []
+
+  switch (videoIndex) {
+    case 0:
+      data.alchemy.edges.map(ytvid => {
+        ytVids.push({id: ytvid.node.videoId, name: ytvid.node.title, description: ytvid.node.description })
+      })
+      component = <EpisodeList video={ytVids} />
+    break;
+
+    case 1:
+      data.cconversations.edges.map(ytvid => {
+        ytVids.push({id: ytvid.node.videoId, name: ytvid.node.title, description: ytvid.node.description })
+      })
+      component = <EpisodeList video={ytVids} />
+    break;
+
+    case 2:
+      data.cattunements.edges.map(ytvid => {
+        ytVids.push({id: ytvid.node.videoId, name: ytvid.node.title, description: ytvid.node.description })
+      })
+      component = <EpisodeList video={ytVids} />
+    break;
+
+    case 3:
+      data.terra.edges.map(ytvid => {
+        ytVids.push({id: ytvid.node.videoId, name: ytvid.node.title, description: ytvid.node.description })
+      })
+      component = <EpisodeList video={ytVids} />
+    break;
+
+    default:
+
+  }
+
   return (
           <ListContainer>
           <SectionTitle style={{color: "white", margin: "0px"}}>Series hosted on Aloha Bokaye!</SectionTitle>
@@ -78,10 +193,8 @@ const AlohaList = ({ children }) => {
             <div className="col s4" style={{width: "100%"}}>
               <div className="collection" style={{width: "555px", border: "none"}}>
                 {videos.map((choice, index) => {
-                  let active = false
-                  if (video === choice) {
-                    active = true
-                  }
+                  let excerpt = choice.description.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|")
+                  let shortDescription = excerpt[0] + " " + excerpt[1] + "..."
                     if (video === choice) {
                       return(
                         <CollectionItemActive>
@@ -89,14 +202,14 @@ const AlohaList = ({ children }) => {
                             <SectionTitle style={{color: "white"}}>
                               <a
                                 key={choice.id}
-                                href={`#!/video/${index}`}
+                                href={`#!/video/${choice.id}`}
                                 style={{marginRight: "20px", color: "white"}}
                                 onClick={() => selectVideo(index)}
                               >
                                 {choice.name}
                               </a>
                             </SectionTitle>
-                            <Subtitle style={{color: "white"}}>{choice.description}</Subtitle>
+                            <Subtitle style={{color: "white"}}>{shortDescription}</Subtitle>
                           </VideoTitleContainer>
                         </CollectionItemActive>
                       )
@@ -108,14 +221,14 @@ const AlohaList = ({ children }) => {
                             <SectionTitle style={{color: "white"}}>
                               <a
                                 key={choice.id}
-                                href={`#!/video/${index}`}
+                                href={`#!/video/${choice.id}`}
                                 style={{marginRight: "20px", color: "white"}}
                                 onClick={() => selectVideo(index)}
                               >
                                 {choice.name}
                               </a>
                             </SectionTitle>
-                            <Subtitle style={{color: "white"}}>{choice.description}</Subtitle>
+                            <Subtitle style={{color: "white"}}>{shortDescription}</Subtitle>
                           </VideoTitleContainer>
                         </CollectionItem>
                       )
@@ -129,7 +242,7 @@ const AlohaList = ({ children }) => {
 
               </TimeLineContainer>
             <IntroContainer>
-              <EpisodeList />
+            {component}
             </IntroContainer>
         </Section>
           </ListContainer>
@@ -137,6 +250,8 @@ const AlohaList = ({ children }) => {
 }
 
 export default AlohaList
+
+//alchemy={ytVidsAlchemy} cconversations={ytVidsConversations} cattunements={ytVidsAttunements} terra={ytVidsTerra}
 
 const StyledContainer = styled(Container)``
 
@@ -147,18 +262,20 @@ const StyledSection = styled(Section)`
 
 const CollectionItem = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   line-height: 1.5rem;
   padding: 10px 20px;
   margin: 0;
+  padding-left: 0px;
 
 `
 const CollectionItemActive = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start
   align-items: flex-start;
   line-height: 1.5rem;
+  padding-left: 0px;
   padding: 10px 20px;
   margin: 0;
   background-color: #ED6F1B;
@@ -166,6 +283,9 @@ const CollectionItemActive = styled.div`
 const TimeLineContainer = styled.div`
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 555px;
   align-items: flex-start;
   margin: 10px;
   width: 63.3333333%;
@@ -221,7 +341,7 @@ const Subtitle = styled.h5`
   font-size: 16px;
   color: ${props => props.theme.color.accent};
   letter-spacing: 0px;
-  text-align: center;
+  text-align: left;
   margin-top: 10px;
   font-style: italic;
 `

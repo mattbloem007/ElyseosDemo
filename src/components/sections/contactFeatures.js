@@ -14,6 +14,8 @@ import salvia from '../../images/salvia-white-icon.png'
 import presaleButton from '../../images/ELYS_pre-sale.png'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import {BrowserView, MobileView} from 'react-device-detect';
+import Signup from "../common/signupBox/signup"
+
 
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
@@ -60,6 +62,7 @@ const ContactFeatures = ({data}) => {
       }
       </FeaturesGrid>
     </StyledSection>
+    <Signup />
   </Section>
   )
 }

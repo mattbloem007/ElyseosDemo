@@ -10,6 +10,7 @@ import Footer from "./footer"
 import SimpleSlider from "./carousel"
 import AlohaList from "./alohaList"
 import backdrop from '../../images/Elys Banner.png'
+import Signup from "../common/signupBox/signup"
 
 
 import { useStaticQuery, graphql, Link } from "gatsby"
@@ -64,6 +65,7 @@ sustainability in said system - Earth and all of her occupants are facing a dire
 Change begins within, so yes...it is time we bring responsibility back home.</FeatureText>
           </IntroContainer>
           <AlohaList />
+          <Signup />
         </StyledSection>
 )
 }

@@ -7,6 +7,8 @@ import RoadNav from "../components/common/roadmapNav/roadNav.js"
 import Layout from "../components/common/layout/layout"
 import SEO from "../components/common/layout/seo"
 import Navigation from "../components/common/navigation/navigation"
+import Signup from "../components/common/signupBox/signup"
+
 import Banner from "../components/sections/banner"
 import Footer from "../components/sections/footer"
 
@@ -59,6 +61,7 @@ class Roadmap extends React.Component {
         <RoadNav data={data}/>
       </StyledSection>
       </Section>
+      <Signup />
       <Footer />
     </Layout>
     )

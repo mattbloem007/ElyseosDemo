@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Layout from "../components/common/layout/layout"
 import SEO from "../components/seo"
 import Navigation from "../components/common/navigation/navigation"
+import Signup from "../components/common/signupBox/signup"
 import Banner from "../components/sections/banner"
 import Header from "../components/sections/header"
 import Features from "../components/sections/features"
@@ -58,7 +59,7 @@ class FeaturePage extends React.Component {
       <Layout>
         <SEO title={data.contentfulFeaturePage.title} url={"https://elyseos.com/" + data.contentfulFeaturePage.slug} />
         <Navigation />
-        <Section id="features">
+        <Section id="features" style={{position: "relative"}}>
         <Banner/>
           <StyledSection>
             <SectionTitle style={{color: "white"}}>{data.contentfulFeaturePage.title}</SectionTitle>
@@ -102,7 +103,7 @@ class FeaturePage extends React.Component {
           </StyledSection>
           <Features data={data.contentfulFeaturePage.contentItems}/>
           {data.contentfulFeaturePage.slug == "home(1)" ? <SimpleSlider /> : null}
-
+          <Signup/>
         </Section>
         <Footer />
       </Layout>

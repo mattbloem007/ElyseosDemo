@@ -7,29 +7,29 @@ import Layout from "../common/layout/layout"
 import { Section, Container } from "../global"
 
 const SimpleSlider = ({ children }) => {
-  // const data = useStaticQuery(
-  //   graphql`
-  //   query featureItemQuery {
-  //  allYoutubeVideo {
-  //    edges {
-  //    node {
-  //      title
-  //      videoId
-  //      description
-  //      localThumbnail {
-  //        childImageSharp {
-  //          fluid(maxWidth: 300) {
-  //            ...GatsbyImageSharpFluid
-  //          }
-  //        }
-  //      }
-  //       }
-  //     }
-  //     }
-  //    }
-  //   `
-  // )
-  //console.log("Carousel data: ", data)
+  const data = useStaticQuery(
+    graphql`
+    query featureItemQuery {
+   allYoutubeVideo {
+     edges {
+     node {
+       title
+       videoId
+       description
+       localThumbnail {
+         childImageSharp {
+           fluid(maxWidth: 300) {
+             ...GatsbyImageSharpFluid
+           }
+         }
+       }
+        }
+      }
+      }
+     }
+    `
+  )
+  console.log("Carousel data: ", data)
   return (
     <Layout>
       <Section style={{backgroundColor: "#231B17"}} className='container-fluid' >
@@ -38,9 +38,8 @@ const SimpleSlider = ({ children }) => {
           <div style={{justifyContent: "center", marginBottom: "300px"}} className="row">
               <div className="col-6">
                   <Carousel>
-                  {/**
+                  {
                     data.allYoutubeVideo.edges.map(videos => {
-                      console.log("Vid, ", videos)
                       return (
                         <Carousel.Item>
                         <Img fluid={videos.node.localThumbnail.childImageSharp.fluid}/>
@@ -49,7 +48,7 @@ const SimpleSlider = ({ children }) => {
                             </Carousel.Caption>
                         </Carousel.Item>
                       )
-                    })*/
+                    })
                   }
                   </Carousel>
               </div>

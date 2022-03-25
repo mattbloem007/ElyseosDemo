@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql, Link } from "gatsby"
+import Signup from "../common/signupBox/signup"
+
 
 import { Section, Container } from "../global"
 
@@ -56,6 +58,7 @@ export default function BlogContent({ data }) {
           {/*<div>{contentParser({ content }, pluginOptions)}</div>**/}
         </IntroContainer>
         </StyledSection>
+        <Signup />
       </Section>
     )
   }
@@ -64,6 +67,7 @@ export default function BlogContent({ data }) {
       <Section>
         <StyledSection>
         </StyledSection>
+        <Signup />
       </Section>
     )
   }

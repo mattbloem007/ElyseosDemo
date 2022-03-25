@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import { Formik, Field, Form, ErrorMessage, Input } from "formik"
+import Signup from "../common/signupBox/signup"
 
 import { Section, Container } from "../global"
 
@@ -258,6 +259,7 @@ export default function EventContent({ data }) {
         }
 
         </StyledSection>
+        <Signup />
       </Section>
     )
   }
@@ -266,6 +268,7 @@ export default function EventContent({ data }) {
       <Section>
         <StyledSection>
         </StyledSection>
+      <Signup />
       </Section>
     )
   }
