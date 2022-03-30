@@ -28,6 +28,7 @@ import canna from '../../images/cannabis-white-icon.png'
 import psilo from '../../images/psilocybin-trans-white.png'
 import salvia from '../../images/salvia-white-icon.png'
 import get from 'lodash/get'
+import Signup from "../common/signupBox/signup"
 
 const Bold = ({ children }) => <span style={{color: "white"}}>{children}</span>
 const Text = ({ children }) => <p style={{color: "white", textAlign: "center"}}>{children}</p>
@@ -93,6 +94,7 @@ const Contact = ({ children }) => {
             </SacramentSymbolsContainer>
           </IntroContainer>
           <EmailSignUp/>
+          <Signup />
         </StyledSection>
 )
 }
@@ -107,6 +109,7 @@ const StyledSection = styled(Section)`
 `
 
 const SectionTitle = styled.h3`
+  font-family: Parisine;
   color: ${props => props.theme.color.primary};
   display: flex;
   justify-content: center;
@@ -115,6 +118,7 @@ const SectionTitle = styled.h3`
 `
 
 const Subtitle = styled.h5`
+  font-family: Parisine;
   font-size: 16px;
   color: ${props => props.theme.color.accent};
   letter-spacing: 0px;

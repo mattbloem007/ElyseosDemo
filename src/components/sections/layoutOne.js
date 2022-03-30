@@ -13,7 +13,6 @@ import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 import { Section, Container } from "../global"
-import ab from '../../images/Aloha_Bokaye_Background.jpg'
 
 const Bold = ({ children }) => <span style={{color: "white"}}>{children}</span>
 const Text = ({ children }) => <p style={{color: "white", textAlign: "center"}}>{children}</p>

@@ -292,6 +292,7 @@ export const Mobile = styled.div`
 `
 
 export const SectionTitle = styled.h5`
+  font-family: Parisine;
   color: white;
   display: flex;
   justify-content: center;

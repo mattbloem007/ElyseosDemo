@@ -198,7 +198,8 @@ const SocialContainer = styled.div`
   display: flex;
   align-items: center;
 `
-const SectionTitle = styled.h5`
+const SectionTitle = styled.h4`
+  font-family: Parisine;
   color: ${props => props.theme.color.primary};
   margin-bottom: 0px;
 `

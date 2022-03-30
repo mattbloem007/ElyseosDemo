@@ -19,7 +19,6 @@ import {BrowserView, MobileView} from 'react-device-detect';
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 
 import { Section, Container } from "../global"
-import ab from '../../images/Aloha_Bokaye_Background.jpg'
 import get from 'lodash/get'
 
 const Bold = ({ children }) => <span style={{color: "white"}}>{children}</span>
@@ -187,7 +186,10 @@ const AlohaList = ({ children }) => {
 
   return (
           <ListContainer>
-          <SectionTitle style={{color: "white", margin: "0px"}}>Series hosted on Aloha Bokaye!</SectionTitle>
+          <span style={{display: "flex", flexDirection: "row", marginTop: "10px"}}>
+            <SectionTitle style={{fontFamily: "Parisine", color: "white", margin: "0px"}}>Series hosted on</SectionTitle>
+            <SectionTitle style={{color: "white", fontFamily: "Tahu", margin: "0px"}}>&nbsp;Aloha Bokaye</SectionTitle>
+          </span>
           <Section id="features" style={{width: "100%", display: "flex", justifyContent: "space-evenly"}}>
           <TimeLineContainer>
             <div className="col s4" style={{width: "100%"}}>
@@ -199,7 +201,7 @@ const AlohaList = ({ children }) => {
                       return(
                         <CollectionItemActive>
                           <VideoTitleContainer>
-                            <SectionTitle style={{color: "white"}}>
+                            <SectionTitle style={{fontFamily: "Parisine", color: "white"}}>
                               <a
                                 key={choice.id}
                                 href={`#!/video/${choice.id}`}
@@ -209,7 +211,7 @@ const AlohaList = ({ children }) => {
                                 {choice.name}
                               </a>
                             </SectionTitle>
-                            <Subtitle style={{color: "white"}}>{shortDescription}</Subtitle>
+                            <Subtitle style={{fontFamily: "Parisine", color: "white"}}>{shortDescription}</Subtitle>
                           </VideoTitleContainer>
                         </CollectionItemActive>
                       )
@@ -218,7 +220,7 @@ const AlohaList = ({ children }) => {
                       return(
                         <CollectionItem>
                           <VideoTitleContainer>
-                            <SectionTitle style={{color: "white"}}>
+                            <SectionTitle style={{fontFamily: "Parisine", color: "white"}}>
                               <a
                                 key={choice.id}
                                 href={`#!/video/${choice.id}`}
@@ -228,7 +230,7 @@ const AlohaList = ({ children }) => {
                                 {choice.name}
                               </a>
                             </SectionTitle>
-                            <Subtitle style={{color: "white"}}>{shortDescription}</Subtitle>
+                            <Subtitle style={{fontFamily: "Parisine", color: "white"}}>{shortDescription}</Subtitle>
                           </VideoTitleContainer>
                         </CollectionItem>
                       )
@@ -328,7 +330,6 @@ const ListContainer = styled(Container)`
   height: 100%;
   margin-bottom: 300px;
   background: #171717 0% 0% no-repeat padding-box;
-  border: 1px solid #ED6F1B;
 
 `
 

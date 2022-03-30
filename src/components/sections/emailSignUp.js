@@ -15,8 +15,8 @@ const Email = () => (
       <FeatureTitle style={{color: "white", fontSize: "20px"}}>Telegram Number</FeatureTitle>
     </ImageandTitle>
     <ImageandTitle>
-      <SacramentSymbol src={email} />
-      <FeatureTitle style={{color: "white", fontSize: "20px"}}>Email Address</FeatureTitle>
+      <SacramentSymbol style={{marginBottom: "100px"}} src={email} />
+      <FeatureTitle style={{color: "white", fontSize: "20px", marginBottom: "100px"}}>Email Address</FeatureTitle>
     </ImageandTitle>
     <FeatureItem>
       <FeatureText style={{color: "white", fontSize: "20px"}}>Share what you propose, need or anything at all!</FeatureText>
@@ -46,6 +46,7 @@ const StyledSection = styled(Section)`
 `
 
 const SectionTitle = styled.h3`
+  font-family: Parisine;
   color: ${props => props.theme.color.primary};
   display: flex;
   justify-content: center;
@@ -80,7 +81,7 @@ const GetInTouchContainer = styled(Container)`
   justify-content: flex-start;
   align-items: baseline;
   flex-direction: column;
-  gap: 35px;
+  gap: 8px;
   padding: 0px 0 40px;
   vertical-align: middle;
   position: absolute;
@@ -129,11 +130,12 @@ const FeatureItem = styled.div`
 const ImageandTitle = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   flex-direction: row;
 `
 
 const FeatureTitle = styled.h5`
+  font-family: Parisine;
   color: ${props => props.theme.color.accent};
   letter-spacing: 0px;
   line-height: 30px;
@@ -141,6 +143,7 @@ const FeatureTitle = styled.h5`
 `
 
 const FeatureText = styled.p`
+  font-family: Parisine;
   text-align: center;
   margin-left: 50px;
   margin-right: 50px;
