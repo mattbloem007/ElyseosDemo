@@ -20,7 +20,7 @@ import {BrowserView, MobileView} from 'react-device-detect';
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 
 import { Section, Container } from "../global"
-import ab from '../../images/AlohaBokayé-1921.jpg'
+import ab from '../../images/Aloha_Bokaye_Background.jpg'
 import get from 'lodash/get'
 
 const Bold = ({ children }) => <span style={{color: "white"}}>{children}</span>
