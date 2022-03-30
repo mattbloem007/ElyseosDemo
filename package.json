@@ -38,6 +38,7 @@
     "gatsby-source-rss-feed": "^1.2.2",
     "gatsby-source-wordpress": "^6.9.1",
     "gatsby-source-wpgraphql-images": "^1.1.0",
+    "gatsby-source-youtube-v2": "^1.0.1",
     "gatsby-source-youtube-v3": "^3.0.2",
     "gatsby-transformer-remark": "^5.9.1",
     "gatsby-transformer-sharp": "^4.9.0",

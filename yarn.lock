@@ -4327,7 +4327,7 @@ axios-rate-limit@^1.3.0:
   resolved "https://registry.yarnpkg.com/axios-rate-limit/-/axios-rate-limit-1.3.0.tgz#03241d24c231c47432dab6e8234cfde819253c2e"
   integrity sha512-cKR5wTbU/CeeyF1xVl5hl6FlYsmzDVqxlN4rGtfO5x7J83UxKDckudsW0yW21/ZJRcO0Qrfm3fUFbhEbWTLayw==
 
-axios@0.21.4, axios@^0.21.1, axios@^0.21.4:
+axios@0.21.4, axios@^0.18.0, axios@^0.21.1, axios@^0.21.4:
   version "0.21.4"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
   integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
@@ -9688,6 +9688,16 @@ gatsby-source-wpgraphql-images@^1.1.0:
     mime "^2.4.6"
     theme-ui "^0.3.1"
     urijs "^1.19.1"
+
+gatsby-source-youtube-v2@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-source-youtube-v2/-/gatsby-source-youtube-v2-1.0.1.tgz#a2d89dbc9c4ac8ecb14ba88eb0af93c9c29e9bfa"
+  integrity sha512-KhY8xfu4j1pcbO2SCA7TEREwLysS+vTrxZ5wuwUex4LMrYkdnZ5oYSpQrb7nNn50VZf2uvhz3XgCRMJHHllDxA==
+  dependencies:
+    axios "^0.18.0"
+    babel-polyfill "^6.26.0"
+    gatsby-source-filesystem "^1.5.27"
+    lodash "^4.17.5"
 
 gatsby-source-youtube-v3@^3.0.2:
   version "3.0.2"
