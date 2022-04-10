@@ -4,7 +4,6 @@ import { Section, Container } from "../../global"
 
 export const Submenu = styled.div`
    position: relative;
-
 `
 
 export const StyledContainer = styled(Container)`
@@ -22,7 +21,7 @@ export const MenuList = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
-  top:20px;
+  top: 39px;
   width: 200px;
   background-color: white;
   font-weight:bold;

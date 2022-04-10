@@ -79,6 +79,7 @@ const AlohaList = ({ children }) => {
           title
           videoId
           description
+          publishedAt(formatString: "DD MMMM, YYYY")
           localThumbnail {
             childImageSharp {
               fluid(maxWidth: 300) {
@@ -96,6 +97,7 @@ const AlohaList = ({ children }) => {
           title
           videoId
           description
+          publishedAt(formatString: "DD MMMM, YYYY")
           localThumbnail {
             childImageSharp {
               fluid(maxWidth: 300) {
@@ -113,6 +115,7 @@ const AlohaList = ({ children }) => {
           title
           videoId
           description
+          publishedAt(formatString: "DD MMMM, YYYY")
           localThumbnail {
             childImageSharp {
               fluid(maxWidth: 300) {
@@ -130,6 +133,7 @@ const AlohaList = ({ children }) => {
           title
           videoId
           description
+          publishedAt(formatString: "DD MMMM, YYYY")
           localThumbnail {
             childImageSharp {
               fluid(maxWidth: 300) {
@@ -154,28 +158,28 @@ const AlohaList = ({ children }) => {
   switch (videoIndex) {
     case 0:
       data.alchemy.edges.map(ytvid => {
-        ytVids.push({id: ytvid.node.videoId, name: ytvid.node.title, description: ytvid.node.description })
+        ytVids.push({id: ytvid.node.videoId, name: ytvid.node.title, description: ytvid.node.description, publishedAt: ytvid.node.publishedAt })
       })
       component = <EpisodeList video={ytVids} />
     break;
 
     case 1:
       data.cconversations.edges.map(ytvid => {
-        ytVids.push({id: ytvid.node.videoId, name: ytvid.node.title, description: ytvid.node.description })
+        ytVids.push({id: ytvid.node.videoId, name: ytvid.node.title, description: ytvid.node.description, publishedAt: ytvid.node.publishedAt })
       })
       component = <EpisodeList video={ytVids} />
     break;
 
     case 2:
       data.cattunements.edges.map(ytvid => {
-        ytVids.push({id: ytvid.node.videoId, name: ytvid.node.title, description: ytvid.node.description })
+        ytVids.push({id: ytvid.node.videoId, name: ytvid.node.title, description: ytvid.node.description, publishedAt: ytvid.node.publishedAt })
       })
       component = <EpisodeList video={ytVids} />
     break;
 
     case 3:
       data.terra.edges.map(ytvid => {
-        ytVids.push({id: ytvid.node.videoId, name: ytvid.node.title, description: ytvid.node.description })
+        ytVids.push({id: ytvid.node.videoId, name: ytvid.node.title, description: ytvid.node.description, publishedAt: ytvid.node.publishedAt })
       })
       component = <EpisodeList video={ytVids} />
     break;

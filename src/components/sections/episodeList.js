@@ -97,7 +97,7 @@ function EpisodeList({video}) {
                       >
                         {choice.name}
                       </a>
-                      <Subtitle>18 March 2022</Subtitle>
+                      <Subtitle>{choice.publishedAt}</Subtitle>
                     </VideoTitleContainer>
                     {/**<SocialContainer>
                       <a style={{width: "33px"}} target="_blank" href="https://www.instagram.com/elyseos_foundation/">
@@ -128,7 +128,7 @@ function EpisodeList({video}) {
                       >
                         {choice.name}
                       </a>
-                      <Subtitle>18 March 2022</Subtitle>
+                      <Subtitle>{choice.publishedAt}</Subtitle>
                     </VideoTitleContainer>
                     {/**<SocialContainer>
                       <a style={{width: "33px"}} target="_blank" href="https://www.instagram.com/elyseos_foundation/">
