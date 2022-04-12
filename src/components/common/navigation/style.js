@@ -61,7 +61,7 @@ export const NavListWrapper = styled.div`
 export const NavItem = styled.li`
   margin: 0 0.75em;
   font-family: ${props => props.theme.font.medium};
-  font-size: 15px;
+  font-size: 12px;
   a {
     text-decoration: none;
     opacity: 0.9;

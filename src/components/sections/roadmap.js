@@ -62,6 +62,11 @@ export default Roadmap
 
 const StyledSection = styled(Section)`
   background-color: #231B17;
+  margin-right: 200px;
+
+  @media (max-width: ${props => props.theme.screen.md}) {
+    margin-right: 0px;
+  }
 `
 
 const IntroContainer = styled.div`

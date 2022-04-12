@@ -120,10 +120,10 @@ const IntroText = styled.div`
   margin: 0px auto;
   margin-left: 10px;
   padding-left: 20px;
-
+  width: 70%;
   @media (max-width: ${props => props.theme.screen.md}) {
     padding-left: 0px;
-    width: 70%;
+
   }
 
   @media (max-width: ${props => props.theme.screen.xs}) {
