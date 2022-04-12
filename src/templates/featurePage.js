@@ -172,6 +172,7 @@ const FeaturesGrid = styled.div`
   @media (max-width: ${props => props.theme.screen.sm}) {
     grid-template-columns: 1fr;
     padding: 0 64px;
+    padding-top: 20px;
   }
 `
 

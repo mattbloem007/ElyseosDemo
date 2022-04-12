@@ -34,6 +34,7 @@ const Footer = () => (
           <ListLink href="/home"><li style={{color: "#231B17"}}>About</li></ListLink>
           <ListLink href="/faq"><li style={{color: "#231B17"}}>FAQ</li></ListLink>
           <li style={{color: "#231B17"}}>Support</li>
+          <ListLink href="/contact"><li style={{color: "#231B17"}}>Contact</li></ListLink>
         </ul>
       </FooterColumn>
       <FooterColumn>

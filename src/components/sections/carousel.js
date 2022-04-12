@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import Carousel from 'react-bootstrap/Carousel'
+import { CCarousel, CCarouselItem, CCarouselCaption, CImage } from '@coreui/react'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from 'gatsby-image';
 import styled from "styled-components"
 import Layout from "../common/layout/layout"
 import { Section, Container } from "../global"
+import eco1 from "../../images/Ecosystem 1_3.png"
 
 const SimpleSlider = ({ children }) => {
   const data = useStaticQuery(
     graphql`
     query featureItemQuery {
-   allYoutubeVideo {
+   allYoutubeVideo(limit: 10) {
      edges {
      node {
        title
@@ -18,8 +20,8 @@ const SimpleSlider = ({ children }) => {
        description
        localThumbnail {
          childImageSharp {
-           fluid(maxWidth: 300) {
-             ...GatsbyImageSharpFluid
+           fluid {
+             src
            }
          }
        }
@@ -36,22 +38,21 @@ const SimpleSlider = ({ children }) => {
         <SectionTitle style={{color: "white"}}>Latest Blogs</SectionTitle>
         <Subtitle>Read all about it</Subtitle>
           <div style={{justifyContent: "center", marginBottom: "300px"}} className="row">
-              <div className="col-6">
-                  <Carousel>
+                  <CCarousel controls indicators>
                   {
                     data.allYoutubeVideo.edges.map(videos => {
                       return (
-                        <Carousel.Item>
-                        <Img fluid={videos.node.localThumbnail.childImageSharp.fluid}/>
-                            <Carousel.Caption>
-                                <Link target="_blank" to={"https://youtube.com/watch?v=" + videos.node.videoId}><h3 style={{color: "#ED6F1B", fontStyle: "italic", textDecoration: "underline"}}>{videos.node.title}</h3></Link>
-                            </Carousel.Caption>
-                        </Carousel.Item>
+                        <CCarouselItem style={{position: "relative"}}>
+                          <CImage src={videos.node.localThumbnail.childImageSharp.fluid.src}/>
+                              <CCarouselCaption className="d-none d-md-block">
+                                  <Link target="_blank" to={"https://youtube.com/watch?v=" + videos.node.videoId}><h3 style={{color: "#ED6F1B", fontStyle: "italic", textDecoration: "underline"}}>{videos.node.title}</h3></Link>
+                              </CCarouselCaption>
+                        </CCarouselItem>
                       )
                     })
                   }
-                  </Carousel>
-              </div>
+                  </CCarousel>
+
           </div>
       </Section>
   </Layout>

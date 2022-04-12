@@ -34,6 +34,8 @@ export const StyledButton = styled.button`
 `
 
 export const NavListWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
   ul {
     list-style: none;
     margin: 0;
@@ -59,7 +61,7 @@ export const NavListWrapper = styled.div`
 export const NavItem = styled.li`
   margin: 0 0.75em;
   font-family: ${props => props.theme.font.medium};
-  ${props => props.theme.font_size.xsmall};
+  font-size: 15px;
   a {
     text-decoration: none;
     opacity: 0.9;

@@ -28,6 +28,7 @@ opacity: 1;
 
 export const StyledSection = styled(Section)`
   background-color: ${props => props.theme.color.background.light};
+
 `
 
 export const FeaturesGrid = styled.div`
@@ -65,6 +66,7 @@ export const IntroText = styled.div`
 
   @media (max-width: ${props => props.theme.screen.md}) {
     padding-left: 0px;
+    width: 80%;
   }
 `
 
@@ -85,7 +87,15 @@ export const FeatureText = styled.p`
 export const TimeLineContainer = styled.div`
   display: flex;
   align-items: flex-start;
-  width: 300px;
+  width: 500px;
+  height: 60%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  @media (max-width: ${props => props.theme.screen.md}) {
+    margin-right: 122px;
+
+  }
 `
 
 
@@ -229,6 +239,9 @@ export const Subtitle = styled.h1`
   margin-top: 10px;
   margin-bottom: 20px;
   font-style: italic;
+  @media (max-width: ${props => props.theme.screen.md}) {
+    margin-right: 22px;
+  }
 `
 
 // Background blur info

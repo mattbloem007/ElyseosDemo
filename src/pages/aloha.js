@@ -15,7 +15,7 @@ import AlohaBokaye from "../components/sections/alohabokaye"
 
 const Aloha = () => (
   <LayoutOne>
-    <SEO title="Roadmap" />
+    <SEO title="Aloha! Bokayé!" />
     <Navigation />
     <AlohaBokaye />
     <Footer />

@@ -111,7 +111,7 @@ const Subtitle = styled.h5`
 const FeaturesGrid = styled.div`
   max-width: 670px;
   display: grid;
-  margin: 0px auto;
+  margin: 80px;
   margin-top: 30px;
   grid-column-gap: 40px;
   grid-row-gap: 35px;

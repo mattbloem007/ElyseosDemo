@@ -55,9 +55,9 @@ const TimeLine = ({ data }) => {
   return (
   <Section id="features">
     <StyledSection style={{backgroundColor: `${sectionCol}`}}>
+      <Timeline style={{padding: "0px", marginLeft: "25px"}}>
       <SectionTitle style={{color: `${sloganCol}`, fontWeight: "bold"}}>{data.slogan}</SectionTitle>
       <Subtitle style={{color: `${titleCol}`}}>{data.title}</Subtitle>
-      <Timeline style={{padding: "0px"}}>
       <IntroText>
         {data.description ? documentToReactComponents(JSON.parse(data.description.raw, options)) : null}
       </IntroText>
@@ -73,6 +73,14 @@ const StyledContainer = styled(Container)``
 
 const StyledSection = styled(Section)`
   background-color: ${props => props.theme.color.background.light};
+  @media (max-width: ${props => props.theme.screen.md}) {
+    width: 90%;
+  }
+  @media (max-width: ${props => props.theme.screen.xs}) {
+    width: 90%;
+  }
+
+
 `
 
 const SectionTitle = styled.h5`
@@ -81,6 +89,11 @@ const SectionTitle = styled.h5`
   justify-content: center;
   text-align: center;
   margin-bottom: 0px;
+  @media (max-width: ${props => props.theme.screen.md}) {
+      margin-right: 22px;
+      justify-content: flex-start;
+  }
+
 `
 
 
@@ -91,6 +104,16 @@ const Subtitle = styled.h1`
   margin-top: 10px;
   margin-bottom: 20px;
   font-style: italic;
+  @media (max-width: ${props => props.theme.screen.md}) {
+      margin-right: 122px;
+      font-size: 25px;
+      text-align: left;
+  }
+  @media (max-width: ${props => props.theme.screen.xs}) {
+    margin-right: 122px;
+    font-size: 25px;
+    text-align: left;
+  }
 `
 
 const IntroText = styled.div`
@@ -100,5 +123,12 @@ const IntroText = styled.div`
 
   @media (max-width: ${props => props.theme.screen.md}) {
     padding-left: 0px;
+    width: 70%;
   }
+
+  @media (max-width: ${props => props.theme.screen.xs}) {
+    padding-left: 10px;
+    width: 50%;
+  }
+
 `

@@ -329,11 +329,17 @@ const ListContainer = styled(Container)`
   align-items: center;
   flex-direction: column;
   gap: 40px;
-  padding: 0px 0 40px;
   width: 80%;
   height: 100%;
   margin-bottom: 300px;
   background: #171717 0% 0% no-repeat padding-box;
+  padding-left: 100px;
+  padding-right: 100px;
+
+  @media (max-width: ${props => props.theme.screen.md}) {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 
 `
 
