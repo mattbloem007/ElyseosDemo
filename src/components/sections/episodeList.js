@@ -83,7 +83,7 @@ function EpisodeList({video}) {
         />
       </div>
       <div className="col s4" style={{width: "88.333333%"}}>
-        <div className="collection" style={{width: "555px", border: "none", overflowX : 'hidden', overflowY: "auto", height: "233px"}}>
+        <div className="collection" style={{width: "380px", border: "none", overflowX : 'hidden', overflowY: "auto", height: "233px"}}>
           {video.map((choice, index) => {
             if (videor === choice) {
               return(

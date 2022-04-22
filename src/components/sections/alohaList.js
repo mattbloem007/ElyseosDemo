@@ -197,7 +197,7 @@ const AlohaList = ({ children }) => {
           <Section id="features" style={{width: "100%", display: "flex", justifyContent: "space-evenly"}}>
           <TimeLineContainer>
             <div className="col s4" style={{width: "100%"}}>
-              <div className="collection" style={{width: "555px", border: "none"}}>
+              <div className="collection" style={{width: "400px", border: "none"}}>
                 {videos.map((choice, index) => {
                   let excerpt = choice.description.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|")
                   let shortDescription = excerpt[0] + " " + excerpt[1] + "..."
@@ -333,7 +333,6 @@ const ListContainer = styled(Container)`
   height: 100%;
   margin-bottom: 300px;
   background: #171717 0% 0% no-repeat padding-box;
-  padding-left: 100px;
   padding-right: 100px;
 
   @media (max-width: ${props => props.theme.screen.md}) {
